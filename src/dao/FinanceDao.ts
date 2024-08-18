@@ -11,7 +11,7 @@ export class FinanceDao {
     async getAllCustomersWithoutApproval(): Promise<Customer[]> {
         try {
             const customers = await this.model.find({
-                financeApproved: { $nin: [ null ], },
+                financeApproved: null,
             });
 
             return customers.map((customer) => {
